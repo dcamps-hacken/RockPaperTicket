@@ -1,8 +1,8 @@
 const { network } = require("hardhat")
 const { developmentChains } = require("../helper-hardhat-config")
 
-const BASE_FEE = "250000000000000000"
-const GAS_PRICE_LINK = 1e9
+const BASE_FEE = "250000000000000000" //premium fee, base fee per transaction on the oracle network
+const GAS_PRICE_LINK = 1e9 // link per gas, calculated based on the gas price of the blockchain
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments

@@ -83,3 +83,5 @@ namedAccounts: {
 
 
 create helper-hardhat-config.js file to define network config
+
+yarn global add hardhat-shorthand

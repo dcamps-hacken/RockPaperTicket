@@ -56,11 +56,41 @@ describe("EventLog", async function () {
         it("reverts if not called from eventGame", async function () {
             await expect(
                 eventLog._updateName("1", "newName")
-            ).to.be.revertedWithCustomError(
-                eventLog,
-                "EventLog__NotCalledFromEventGame"
-            )
+            ).to.be.revertedWith("EventLog__NotCalledFromEventGame")
             //await expect(eventLog._updateName("1", "newName").to.be.reverted)
         })
+    })
+
+    describe("_gameStart", async function () {
+        it("reverts if not called from eventGame", async function () {
+            await expect(eventLog._gameStart("1")).to.be.revertedWith(
+                "EventLog__NotCalledFromEventGame"
+            )
+        })
+        it("reverts if game is not in Registering status", async function () {
+            await expect(eventLog._gameStart("1")).to.be.revertedWith(
+                "EventLog__GameNotRegistering"
+            )
+        })
+        it("changes the game status to Started", async function () {
+            await eventLog._gameStart("1")
+            const gameStatus = await eventLog.getEventStatus("1")
+            assert.equal(gameStatus.toString(), "1")
+        })
+        it("emits GameStarted event", async function () {
+            await expect(eventLog._gameStart("1")).to.emit(
+                eventLog,
+                "GameStarted"
+            )
+        })
+    })
+})
+
+describe("EventGame", async function () {
+    let eventGame, deployer
+    beforeEach(async function () {
+        deployer = (await getNamedAccounts()).deployer //get named accounts from that section in hardhat-config
+        await deployments.fixture(["all"]) //fixtures allows to deploy any deploy file with set tags
+        eventGame = await ethers.getContract("EventGame", deployer) //get most recently deployed contract
     })
 })

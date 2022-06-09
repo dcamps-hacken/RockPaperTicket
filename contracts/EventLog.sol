@@ -4,31 +4,19 @@ pragma solidity 0.8.4;
 
 //Error codes
 error EventLog__NotCalledFromEventGame();
-error EventLog__GameNotRegistering();
-error EventLog__GameNotStarted();
+error EventLog__GameNotREGISTERING();
+error EventLog__GameNotSTARTED();
 
 /** @title
  *  @author David Camps Novi
  *  @dev This contract saves all events and their details and allows to query data
  */
-// solc --userdoc --devdoc EventLog.sol
 contract EventLog {
-    // all events ever created are stored in these structures
-    uint256 private s_numberOfEvents;
-    uint256[] s_eventIds;
-    mapping(uint256 => Event) s_events; // s_eventId => Event
-
-    // every user events are stored as userAddress => Event
-    mapping(address => uint256[]) s_registeredEvents;
-    mapping(address => uint256[]) s_createdEvents;
-
-    // the winners of each event are stored as s_eventId => userAddress => true
-    mapping(uint256 => mapping(address => bool)) s_winners;
-
+    /* Type declarations */
     enum GameStatus {
-        Registering,
-        Started,
-        Ended
+        REGISTERING,
+        STARTED,
+        ENDED
     }
 
     struct Event {
@@ -41,31 +29,32 @@ contract EventLog {
         GameStatus status;
     }
 
-    //modifier callFromEvent() {
-    //    if (msg.sender != s_events[_eventId].eventGameAddress)
-    //        revert EventLog__NotCalledFromEventGame();
-    //    _;
-    //}
+    /* State variables */
+    uint256 private s_numberOfEvents;
+    uint256[] s_eventIds;
+    mapping(uint256 => Event) s_events; // eventId => Event struct
+    mapping(address => uint256[]) s_registeredEvents; // user address => eventId
+    mapping(address => uint256[]) s_createdEvents; // user address => eventId
+    mapping(uint256 => mapping(address => bool)) s_winners; // user address => bool
 
-    constructor() {
-        s_numberOfEvents = 0;
-    }
-
+    /* Events */
     event GameStarted(
         address indexed gameAddress,
         address indexed owner,
-        uint256 timeStarted
+        uint256 timeSTARTED
     );
 
     event GameEnded(
         address indexed gameAddress,
         address indexed owner,
-        uint256 timeStarted
+        uint256 timeSTARTED
     );
 
-    //
-    // LOG NEW EVENTS
-    //
+    constructor() {
+        s_numberOfEvents = 0;
+    }
+
+    /* External functions */
 
     function _logEvent(
         uint256 _eventId,
@@ -82,15 +71,11 @@ contract EventLog {
             _numberOfTickets,
             _ticketPrice,
             0,
-            GameStatus.Registering
+            GameStatus.REGISTERING
         );
         s_numberOfEvents += 1;
         s_eventIds.push(_eventId);
     }
-
-    //
-    // UPDATE EVENTS
-    //
 
     function _updateName(uint256 _eventId, string memory _newName)
         external
@@ -113,7 +98,6 @@ contract EventLog {
         s_events[_eventId].ticketPrice = _newPrice;
     }
 
-    // LOG OTHER EVENTS
     function _addRegisteredEvent(address _userAddress, uint256 _eventId)
         external
     {
@@ -128,17 +112,13 @@ contract EventLog {
         s_createdEvents[_userAddress].push(_eventId);
     }
 
-    //
-    // CHANGE GAME STATUS
-    //
-
     function _gameStart(uint256 _eventId) external {
         if (msg.sender != s_events[_eventId].eventGameAddress)
             revert EventLog__NotCalledFromEventGame();
-        if (s_events[_eventId].status != GameStatus.Registering)
-            revert EventLog__GameNotRegistering();
-        //require(s_events[_eventId].status == GameStatus.Registering);
-        s_events[_eventId].status = GameStatus.Started;
+        if (s_events[_eventId].status != GameStatus.REGISTERING)
+            revert EventLog__GameNotREGISTERING();
+        //require(s_events[_eventId].status == GameStatus.REGISTERING);
+        s_events[_eventId].status = GameStatus.STARTED;
         Event memory _event = s_events[_eventId];
         emit GameStarted(
             _event.eventGameAddress,
@@ -150,10 +130,10 @@ contract EventLog {
     function _gameEnd(uint256 _eventId) external {
         if (msg.sender != s_events[_eventId].eventGameAddress)
             revert EventLog__NotCalledFromEventGame();
-        if (s_events[_eventId].status != GameStatus.Started)
-            revert EventLog__GameNotStarted();
-        //require(s_events[_eventId].status == GameStatus.Started);
-        s_events[_eventId].status = GameStatus.Ended;
+        if (s_events[_eventId].status != GameStatus.STARTED)
+            revert EventLog__GameNotSTARTED();
+        //require(s_events[_eventId].status == GameStatus.STARTED);
+        s_events[_eventId].status = GameStatus.ENDED;
         Event memory _event = s_events[_eventId];
         emit GameEnded(
             _event.eventGameAddress,
@@ -162,19 +142,13 @@ contract EventLog {
         );
     }
 
-    //
-    // CHANGE GAME STATUS
-    //
-
     function _addWinner(uint256 _eventId, address _winner) external {
         if (msg.sender != s_events[_eventId].eventGameAddress)
             revert EventLog__NotCalledFromEventGame();
         s_winners[_eventId][_winner] = true;
     }
 
-    //
-    // GETTER FUNCTIONS
-    //
+    /* View / Pure functions */
 
     function getNumberOfEvents() public view returns (uint256) {
         return s_numberOfEvents;
@@ -201,9 +175,9 @@ contract EventLog {
         return s_events[_eventId].totalUsers;
     }
 
-    //function getGameStatus(uint256 _eventId) public view returns (uint8) {
-    //    return s_events[_eventId].status;
-    //}
+    function getGameStatus(uint256 _eventId) public view returns (GameStatus) {
+        return s_events[_eventId].status;
+    }
 
     function getEventName(uint256 _eventId)
         external
@@ -225,7 +199,7 @@ contract EventLog {
     function getOpenEvents() public view returns (Event[] memory) {
         uint256 availableLength = 0;
         for (uint256 i = 1; i <= s_numberOfEvents; i++) {
-            if (s_events[i].status == GameStatus.Registering) {
+            if (s_events[i].status == GameStatus.REGISTERING) {
                 availableLength += 1;
             }
         }
@@ -233,7 +207,7 @@ contract EventLog {
         Event[] memory openEvents = new Event[](availableLength);
         uint256 currentIndex = 0;
         for (uint256 i = 1; i <= s_numberOfEvents; i++) {
-            if (s_events[i].status == GameStatus.Registering) {
+            if (s_events[i].status == GameStatus.REGISTERING) {
                 openEvents[currentIndex] = s_events[i];
                 currentIndex += 1;
             }

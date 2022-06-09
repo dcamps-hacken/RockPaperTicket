@@ -1,0 +1,769 @@
+{
+  "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "EventLog__GameNotRegistering",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EventLog__GameNotStarted",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EventLog__NotCalledFromEventGame",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "gameAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timeStarted",
+          "type": "uint256"
+        }
+      ],
+      "name": "GameEnded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "gameAddress",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timeStarted",
+          "type": "uint256"
+        }
+      ],
+      "name": "GameStarted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_userAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "_addCreatedEvent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_userAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "_addRegisteredEvent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_winner",
+          "type": "address"
+        }
+      ],
+      "name": "_addWinner",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "_gameEnd",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "_gameStart",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "_isWinner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_eventGameAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_eventOwner",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_eventName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_numberOfTickets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_ticketPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "_logEvent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_newName",
+          "type": "string"
+        }
+      ],
+      "name": "_updateName",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_newPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "_updatePrice",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_newTickets",
+          "type": "uint256"
+        }
+      ],
+      "name": "_updateTickets",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getCreatedEvents",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "eventGameAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "eventOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "eventName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "numberOfTickets",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "ticketPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalUsers",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum EventLog.GameStatus",
+              "name": "status",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct EventLog.Event[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getEvent",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "eventGameAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "eventOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "eventName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "numberOfTickets",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "ticketPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalUsers",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum EventLog.GameStatus",
+              "name": "status",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct EventLog.Event",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getEventAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getEventName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getNumberOfEvents",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_eventId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getNumberOfTickets",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getOpenEvents",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "eventGameAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "eventOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "eventName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "numberOfTickets",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "ticketPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalUsers",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum EventLog.GameStatus",
+              "name": "status",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct EventLog.Event[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getRegisteredEvents",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "eventGameAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "eventOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "eventName",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "numberOfTickets",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "ticketPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalUsers",
+              "type": "uint256"
+            },
+            {
+              "internalType": "enum EventLog.GameStatus",
+              "name": "status",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct EventLog.Event[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x354af893172d75a1289de2b61f271e55902f65757e99efc56dd183f15cb62e40",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "transactionIndex": 0,
+    "gasUsed": "2558179",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x9e32e5f3be12e74d1f4a145bf4b9c5d9702629d03faac3ff6adf62b74923bf44",
+    "transactionHash": "0x354af893172d75a1289de2b61f271e55902f65757e99efc56dd183f15cb62e40",
+    "logs": [],
+    "blockNumber": 2,
+    "cumulativeGasUsed": "2558179",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "1525d4e4a5598b748d45eb571e4fb156",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"EventLog__GameNotRegistering\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"EventLog__GameNotStarted\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"EventLog__NotCalledFromEventGame\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"gameAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timeStarted\",\"type\":\"uint256\"}],\"name\":\"GameEnded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"gameAddress\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timeStarted\",\"type\":\"uint256\"}],\"name\":\"GameStarted\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"_addCreatedEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"_addRegisteredEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_winner\",\"type\":\"address\"}],\"name\":\"_addWinner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"_gameEnd\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"_gameStart\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"_isWinner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_eventGameAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_eventOwner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_eventName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_numberOfTickets\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_ticketPrice\",\"type\":\"uint256\"}],\"name\":\"_logEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_newName\",\"type\":\"string\"}],\"name\":\"_updateName\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_newPrice\",\"type\":\"uint256\"}],\"name\":\"_updatePrice\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_newTickets\",\"type\":\"uint256\"}],\"name\":\"_updateTickets\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"getCreatedEvents\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"eventGameAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"eventOwner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"eventName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"numberOfTickets\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"ticketPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalUsers\",\"type\":\"uint256\"},{\"internalType\":\"enum EventLog.GameStatus\",\"name\":\"status\",\"type\":\"uint8\"}],\"internalType\":\"struct EventLog.Event[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"getEvent\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"eventGameAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"eventOwner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"eventName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"numberOfTickets\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"ticketPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalUsers\",\"type\":\"uint256\"},{\"internalType\":\"enum EventLog.GameStatus\",\"name\":\"status\",\"type\":\"uint8\"}],\"internalType\":\"struct EventLog.Event\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"getEventAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"getEventName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getNumberOfEvents\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_eventId\",\"type\":\"uint256\"}],\"name\":\"getNumberOfTickets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOpenEvents\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"eventGameAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"eventOwner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"eventName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"numberOfTickets\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"ticketPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalUsers\",\"type\":\"uint256\"},{\"internalType\":\"enum EventLog.GameStatus\",\"name\":\"status\",\"type\":\"uint8\"}],\"internalType\":\"struct EventLog.Event[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_userAddress\",\"type\":\"address\"}],\"name\":\"getRegisteredEvents\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"eventGameAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"eventOwner\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"eventName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"numberOfTickets\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"ticketPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalUsers\",\"type\":\"uint256\"},{\"internalType\":\"enum EventLog.GameStatus\",\"name\":\"status\",\"type\":\"uint8\"}],\"internalType\":\"struct EventLog.Event[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"This contract saves all events and their details and allows to query data\",\"kind\":\"dev\",\"methods\":{},\"title\":\"@author David Camps Novi\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/EventLog.sol\":\"EventLog\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/EventLog.sol\":{\"content\":\"pragma solidity 0.8.4;\\n\\n//This contract is a log of the created events\\n\\n//Error codes\\nerror EventLog__NotCalledFromEventGame();\\nerror EventLog__GameNotRegistering();\\nerror EventLog__GameNotStarted();\\n\\n/** @title\\n *  @author David Camps Novi\\n *  @dev This contract saves all events and their details and allows to query data\\n */\\n// solc --userdoc --devdoc EventLog.sol\\ncontract EventLog {\\n    // all events ever created are stored in these structures\\n    uint256 private s_numberOfEvents;\\n    uint256[] s_eventIds;\\n    mapping(uint256 => Event) s_events; // s_eventId => Event\\n\\n    // every user events are stored as userAddress => Event\\n    mapping(address => uint256[]) s_registeredEvents;\\n    mapping(address => uint256[]) s_createdEvents;\\n\\n    // the winners of each event are stored as s_eventId => userAddress => true\\n    mapping(uint256 => mapping(address => bool)) s_winners;\\n\\n    enum GameStatus {\\n        Registering,\\n        Started,\\n        Ended\\n    }\\n\\n    struct Event {\\n        address eventGameAddress;\\n        address eventOwner;\\n        string eventName;\\n        uint256 numberOfTickets;\\n        uint256 ticketPrice;\\n        uint256 totalUsers;\\n        GameStatus status;\\n    }\\n\\n    //modifier callFromEvent() {\\n    //    if (msg.sender != s_events[_eventId].eventGameAddress)\\n    //        revert EventLog__NotCalledFromEventGame();\\n    //    _;\\n    //}\\n\\n    constructor() {\\n        s_numberOfEvents = 0;\\n    }\\n\\n    event GameStarted(\\n        address indexed gameAddress,\\n        address indexed owner,\\n        uint256 timeStarted\\n    );\\n\\n    event GameEnded(\\n        address indexed gameAddress,\\n        address indexed owner,\\n        uint256 timeStarted\\n    );\\n\\n    //\\n    // LOG NEW EVENTS\\n    //\\n\\n    function _logEvent(\\n        uint256 _eventId,\\n        address _eventGameAddress,\\n        address _eventOwner,\\n        string memory _eventName,\\n        uint256 _numberOfTickets,\\n        uint256 _ticketPrice\\n    ) external {\\n        s_events[_eventId] = Event(\\n            _eventGameAddress,\\n            _eventOwner,\\n            _eventName,\\n            _numberOfTickets,\\n            _ticketPrice,\\n            0,\\n            GameStatus.Registering\\n        );\\n        s_numberOfEvents += 1;\\n        s_eventIds.push(_eventId);\\n    }\\n\\n    //\\n    // UPDATE EVENTS\\n    //\\n\\n    function _updateName(uint256 _eventId, string memory _newName)\\n        external\\n    //callFromEvent\\n    {\\n        if (msg.sender != s_events[_eventId].eventGameAddress)\\n            revert EventLog__NotCalledFromEventGame();\\n        s_events[_eventId].eventName = _newName;\\n    }\\n\\n    function _updateTickets(uint256 _eventId, uint256 _newTickets) external {\\n        if (msg.sender != s_events[_eventId].eventGameAddress)\\n            revert EventLog__NotCalledFromEventGame();\\n        s_events[_eventId].numberOfTickets = _newTickets;\\n    }\\n\\n    function _updatePrice(uint256 _eventId, uint256 _newPrice) external {\\n        if (msg.sender != s_events[_eventId].eventGameAddress)\\n            revert EventLog__NotCalledFromEventGame();\\n        s_events[_eventId].ticketPrice = _newPrice;\\n    }\\n\\n    // LOG OTHER EVENTS\\n    function _addRegisteredEvent(address _userAddress, uint256 _eventId)\\n        external\\n    {\\n        if (msg.sender != s_events[_eventId].eventGameAddress)\\n            revert EventLog__NotCalledFromEventGame();\\n        s_registeredEvents[_userAddress].push(_eventId);\\n        s_events[_eventId].totalUsers += 1;\\n    }\\n\\n    function _addCreatedEvent(address _userAddress, uint256 _eventId) external {\\n        //require(msg.sender == s_events[_eventId].eventGameAddress);\\n        s_createdEvents[_userAddress].push(_eventId);\\n    }\\n\\n    //\\n    // CHANGE GAME STATUS\\n    //\\n\\n    function _gameStart(uint256 _eventId) external {\\n        if (msg.sender != s_events[_eventId].eventGameAddress)\\n            revert EventLog__NotCalledFromEventGame();\\n        if (s_events[_eventId].status != GameStatus.Registering)\\n            revert EventLog__GameNotRegistering();\\n        //require(s_events[_eventId].status == GameStatus.Registering);\\n        s_events[_eventId].status = GameStatus.Started;\\n        Event memory _event = s_events[_eventId];\\n        emit GameStarted(\\n            _event.eventGameAddress,\\n            _event.eventOwner,\\n            block.timestamp\\n        );\\n    }\\n\\n    function _gameEnd(uint256 _eventId) external {\\n        if (msg.sender != s_events[_eventId].eventGameAddress)\\n            revert EventLog__NotCalledFromEventGame();\\n        if (s_events[_eventId].status != GameStatus.Started)\\n            revert EventLog__GameNotStarted();\\n        //require(s_events[_eventId].status == GameStatus.Started);\\n        s_events[_eventId].status = GameStatus.Ended;\\n        Event memory _event = s_events[_eventId];\\n        emit GameEnded(\\n            _event.eventGameAddress,\\n            _event.eventOwner,\\n            block.timestamp\\n        );\\n    }\\n\\n    //\\n    // CHANGE GAME STATUS\\n    //\\n\\n    function _addWinner(uint256 _eventId, address _winner) external {\\n        if (msg.sender != s_events[_eventId].eventGameAddress)\\n            revert EventLog__NotCalledFromEventGame();\\n        s_winners[_eventId][_winner] = true;\\n    }\\n\\n    //\\n    // GETTER FUNCTIONS\\n    //\\n\\n    function getNumberOfEvents() public view returns (uint256) {\\n        return s_numberOfEvents;\\n    }\\n\\n    function getEvent(uint256 _eventId) public view returns (Event memory) {\\n        Event memory newEvent = s_events[_eventId];\\n        return newEvent;\\n    }\\n\\n    function getEventAddress(uint256 _eventId) public view returns (address) {\\n        return s_events[_eventId].eventGameAddress;\\n    }\\n\\n    function getEventName(uint256 _eventId)\\n        external\\n        view\\n        returns (string memory)\\n    {\\n        return s_events[_eventId].eventName;\\n    }\\n\\n    function getNumberOfTickets(uint256 _eventId)\\n        external\\n        view\\n        returns (uint256)\\n    {\\n        uint256 numberOfTickets = s_events[_eventId].numberOfTickets;\\n        return numberOfTickets;\\n    }\\n\\n    function getOpenEvents() public view returns (Event[] memory) {\\n        uint256 availableLength = 0;\\n        for (uint256 i = 1; i <= s_numberOfEvents; i++) {\\n            if (s_events[i].status == GameStatus.Registering) {\\n                availableLength += 1;\\n            }\\n        }\\n\\n        Event[] memory openEvents = new Event[](availableLength);\\n        uint256 currentIndex = 0;\\n        for (uint256 i = 1; i <= s_numberOfEvents; i++) {\\n            if (s_events[i].status == GameStatus.Registering) {\\n                openEvents[currentIndex] = s_events[i];\\n                currentIndex += 1;\\n            }\\n        }\\n        return openEvents;\\n    }\\n\\n    function getRegisteredEvents(address _userAddress)\\n        public\\n        view\\n        returns (Event[] memory)\\n    {\\n        uint256[] memory registeredEvents = s_registeredEvents[_userAddress];\\n        uint256 availableLength = registeredEvents.length;\\n        Event[] memory registeredEventsStruct = new Event[](availableLength);\\n        for (uint256 i = 0; i < availableLength; i++) {\\n            uint256 eventId = registeredEvents[i];\\n            Event memory newEvent = s_events[eventId];\\n            registeredEventsStruct[i] = newEvent;\\n        }\\n        return registeredEventsStruct;\\n    }\\n\\n    function getCreatedEvents(address _userAddress)\\n        public\\n        view\\n        returns (Event[] memory)\\n    {\\n        uint256[] memory createdEvents = s_createdEvents[_userAddress];\\n        uint256 availableLength = createdEvents.length;\\n        Event[] memory createdEventsStruct = new Event[](availableLength);\\n        for (uint256 i = 0; i < availableLength; i++) {\\n            uint256 eventId = createdEvents[i];\\n            Event memory newEvent = s_events[eventId];\\n            createdEventsStruct[i] = newEvent;\\n        }\\n        return createdEventsStruct;\\n    }\\n\\n    function _isWinner(uint256 _eventId, address _userAddress)\\n        external\\n        view\\n        returns (bool)\\n    {\\n        return s_winners[_eventId][_userAddress];\\n    }\\n}\\n\",\"keccak256\":\"0xdc931c20a0d1f14a219fb6fc227ab04ee0b3170a9d72d9598c0ce986149e74a6\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060008081905550612d94806100276000396000f3fe608060405234801561001057600080fd5b50600436106101165760003560e01c806379050904116100a2578063c90eeff111610071578063c90eeff114610303578063ee0591fe1461031f578063f052cf991461033b578063fbf6265e14610357578063fc999f201461038757610116565b8063790509041461027d5780637b7528ac1461029b5780639abea6c1146102b7578063ab31803f146102d357610116565b806320037f33116100e957806320037f33146101a15780634945fcc7146101d157806364ab2b10146102015780636d1884e01461021d5780636e59b1ad1461024d57610116565b8063069e2fb21461011b57806309ac3bb5146101375780631210b3d6146101555780631c25f16e14610171575b600080fd5b610135600480360381019061013091906124cc565b6103a3565b005b61013f6104d6565b60405161014c91906129c7565b60405180910390f35b61016f600480360381019061016a9190612662565b6104df565b005b61018b60048036038101906101869190612508565b610599565b604051610198919061292b565b60405180910390f35b6101bb60048036038101906101b691906124a3565b6105d9565b6040516101c89190612946565b60405180910390f35b6101eb60048036038101906101e69190612508565b6109ac565b6040516101f89190612983565b60405180910390f35b61021b6004803603810190610216919061260e565b610a54565b005b61023760048036038101906102329190612508565b610b1e565b60405161024491906129a5565b60405180910390f35b61026760048036038101906102629190612508565b610d34565b60405161027491906129c7565b60405180910390f35b610285610d59565b6040516102929190612946565b60405180910390f35b6102b560048036038101906102b09190612508565b6111c9565b005b6102d160048036038101906102cc9190612662565b61160b565b005b6102ed60048036038101906102e891906124a3565b6116c5565b6040516102fa9190612946565b60405180910390f35b61031d6004803603810190610318919061256d565b611a98565b005b61033960048036038101906103349190612531565b611cb0565b005b61035560048036038101906103509190612508565b611db8565b005b610371600480360381019061036c9190612531565b6121fb565b60405161037e9190612968565b60405180910390f35b6103a1600480360381019061039c91906124cc565b612263565b005b6002600082815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461043e576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081908060018154018082558091505060019003906000526020600020016000909190919091505560016002600083815260200190815260200160002060050160008282546104cb9190612a9e565b925050819055505050565b60008054905090565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461057a576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8060026000848152602001908152602001600020600401819055505050565b60006002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60606000600460008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002080548060200260200160405190810160405280929190818152602001828054801561066657602002820191906000526020600020905b815481526020019060010190808311610652575b5050505050905060008151905060008167ffffffffffffffff8111156106b5577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040519080825280602002602001820160405280156106ee57816020015b6106db6122cd565b8152602001906001900390816106d35790505b50905060005b828110156109a0576000848281518110610737577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b602002602001015190506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461081d90612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461084990612ba3565b80156108965780601f1061086b57610100808354040283529160200191610896565b820191906000526020600020905b81548152906001019060200180831161087957829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff166002811115610908577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115610940577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050905080848481518110610980577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200260200101819052505050808061099890612c06565b9150506106f4565b50809350505050919050565b60606002600083815260200190815260200160002060020180546109cf90612ba3565b80601f01602080910402602001604051908101604052809291908181526020018280546109fb90612ba3565b8015610a485780601f10610a1d57610100808354040283529160200191610a48565b820191906000526020600020905b815481529060010190602001808311610a2b57829003601f168201915b50505050509050919050565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610aef576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b80600260008481526020019081526020016000206002019080519060200190610b1992919061236e565b505050565b610b266122cd565b6000600260008481526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282018054610c0290612ba3565b80601f0160208091040260200160405190810160405280929190818152602001828054610c2e90612ba3565b8015610c7b5780601f10610c5057610100808354040283529160200191610c7b565b820191906000526020600020905b815481529060010190602001808311610c5e57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff166002811115610ced577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115610d25577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050905080915050919050565b6000806002600084815260200190815260200160002060030154905080915050919050565b6060600080600190505b6000548111610e2b5760006002811115610da6577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff166002811115610e02577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b1415610e1857600182610e159190612a9e565b91505b8080610e2390612c06565b915050610d63565b5060008167ffffffffffffffff811115610e6e577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b604051908082528060200260200182016040528015610ea757816020015b610e946122cd565b815260200190600190039081610e8c5790505b509050600080600190505b60005481116111bf5760006002811115610ef5577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff166002811115610f51577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b14156111ac57600260008281526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461103190612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461105d90612ba3565b80156110aa5780601f1061107f576101008083540402835291602001916110aa565b820191906000526020600020905b81548152906001019060200180831161108d57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff16600281111561111c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115611154577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050838381518110611191577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200260200101819052506001826111a99190612a9e565b91505b80806111b790612c06565b915050610eb2565b5081935050505090565b6002600082815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614611264576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6001600281111561129e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff1660028111156112fa577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b14611331576040517f7c26c04a00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600280600083815260200190815260200160002060060160006101000a81548160ff02191690836002811115611390577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461147190612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461149d90612ba3565b80156114ea5780601f106114bf576101008083540402835291602001916114ea565b820191906000526020600020905b8154815290600101906020018083116114cd57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff16600281111561155c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115611594577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b815250509050806020015173ffffffffffffffffffffffffffffffffffffffff16816000015173ffffffffffffffffffffffffffffffffffffffff167fc5e48929c6ad41636874ae3938e60e36431dd0899ca520e58c58107c9e4454de426040516115ff91906129c7565b60405180910390a35050565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146116a6576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8060026000848152602001908152602001600020600301819055505050565b60606000600360008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002080548060200260200160405190810160405280929190818152602001828054801561175257602002820191906000526020600020905b81548152602001906001019080831161173e575b5050505050905060008151905060008167ffffffffffffffff8111156117a1577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040519080825280602002602001820160405280156117da57816020015b6117c76122cd565b8152602001906001900390816117bf5790505b50905060005b82811015611a8c576000848281518110611823577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b602002602001015190506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461190990612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461193590612ba3565b80156119825780601f1061195757610100808354040283529160200191611982565b820191906000526020600020905b81548152906001019060200180831161196557829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff1660028111156119f4577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115611a2c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050905080848481518110611a6c577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b602002602001018190525050508080611a8490612c06565b9150506117e0565b50809350505050919050565b6040518060e001604052808673ffffffffffffffffffffffffffffffffffffffff1681526020018573ffffffffffffffffffffffffffffffffffffffff1681526020018481526020018381526020018281526020016000815260200160006002811115611b2e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b8152506002600088815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040820151816002019080519060200190611bee92919061236e565b50606082015181600301556080820151816004015560a0820151816005015560c08201518160060160006101000a81548160ff02191690836002811115611c5e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055509050506001600080828254611c789190612a9e565b925050819055506001869080600181540180825580915050600190039060005260206000200160009091909190915055505050505050565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614611d4b576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60016005600084815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b6002600082815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614611e53576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60006002811115611e8d577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff166002811115611ee9577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b14611f20576040517faef48ca700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60016002600083815260200190815260200160002060060160006101000a81548160ff02191690836002811115611f80577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461206190612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461208d90612ba3565b80156120da5780601f106120af576101008083540402835291602001916120da565b820191906000526020600020905b8154815290600101906020018083116120bd57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff16600281111561214c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115612184577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b815250509050806020015173ffffffffffffffffffffffffffffffffffffffff16816000015173ffffffffffffffffffffffffffffffffffffffff167fee0dca10a9957dad74da3fe318a3ccc561c46d96be0ab0b66e7aff32aab94cf3426040516121ef91906129c7565b60405180910390a35050565b60006005600084815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600460008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190806001815401808255809150506001900390600052602060002001600090919091909150555050565b6040518060e00160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff1681526020016060815260200160008152602001600081526020016000815260200160006002811115612368577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525090565b82805461237a90612ba3565b90600052602060002090601f01602090048101928261239c57600085556123e3565b82601f106123b557805160ff19168380011785556123e3565b828001600101855582156123e3579182015b828111156123e25782518255916020019190600101906123c7565b5b5090506123f091906123f4565b5090565b5b8082111561240d5760008160009055506001016123f5565b5090565b600061242461241f84612a07565b6129e2565b90508281526020810184848401111561243c57600080fd5b612447848285612b61565b509392505050565b60008135905061245e81612d30565b92915050565b600082601f83011261247557600080fd5b8135612485848260208601612411565b91505092915050565b60008135905061249d81612d47565b92915050565b6000602082840312156124b557600080fd5b60006124c38482850161244f565b91505092915050565b600080604083850312156124df57600080fd5b60006124ed8582860161244f565b92505060206124fe8582860161248e565b9150509250929050565b60006020828403121561251a57600080fd5b60006125288482850161248e565b91505092915050565b6000806040838503121561254457600080fd5b60006125528582860161248e565b92505060206125638582860161244f565b9150509250929050565b60008060008060008060c0878903121561258657600080fd5b600061259489828a0161248e565b96505060206125a589828a0161244f565b95505060406125b689828a0161244f565b945050606087013567ffffffffffffffff8111156125d357600080fd5b6125df89828a01612464565b93505060806125f089828a0161248e565b92505060a061260189828a0161248e565b9150509295509295509295565b6000806040838503121561262157600080fd5b600061262f8582860161248e565b925050602083013567ffffffffffffffff81111561264c57600080fd5b61265885828601612464565b9150509250929050565b6000806040838503121561267557600080fd5b60006126838582860161248e565b92505060206126948582860161248e565b9150509250929050565b60006126aa83836127d5565b905092915050565b6126bb81612af4565b82525050565b6126ca81612af4565b82525050565b60006126db82612a48565b6126e58185612a6b565b9350836020820285016126f785612a38565b8060005b858110156127335784840389528151612714858261269e565b945061271f83612a5e565b925060208a019950506001810190506126fb565b50829750879550505050505092915050565b61274e81612b06565b82525050565b61275d81612b4f565b82525050565b600061276e82612a53565b6127788185612a7c565b9350612788818560208601612b70565b61279181612d0b565b840191505092915050565b60006127a782612a53565b6127b18185612a8d565b93506127c1818560208601612b70565b6127ca81612d0b565b840191505092915050565b600060e0830160008301516127ed60008601826126b2565b50602083015161280060208601826126b2565b50604083015184820360408601526128188282612763565b915050606083015161282d606086018261290d565b506080830151612840608086018261290d565b5060a083015161285360a086018261290d565b5060c083015161286660c0860182612754565b508091505092915050565b600060e08301600083015161288960008601826126b2565b50602083015161289c60208601826126b2565b50604083015184820360408601526128b48282612763565b91505060608301516128c9606086018261290d565b5060808301516128dc608086018261290d565b5060a08301516128ef60a086018261290d565b5060c083015161290260c0860182612754565b508091505092915050565b61291681612b45565b82525050565b61292581612b45565b82525050565b600060208201905061294060008301846126c1565b92915050565b6000602082019050818103600083015261296081846126d0565b905092915050565b600060208201905061297d6000830184612745565b92915050565b6000602082019050818103600083015261299d818461279c565b905092915050565b600060208201905081810360008301526129bf8184612871565b905092915050565b60006020820190506129dc600083018461291c565b92915050565b60006129ec6129fd565b90506129f88282612bd5565b919050565b6000604051905090565b600067ffffffffffffffff821115612a2257612a21612cdc565b5b612a2b82612d0b565b9050602081019050919050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000612aa982612b45565b9150612ab483612b45565b9250827fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff03821115612ae957612ae8612c4f565b5b828201905092915050565b6000612aff82612b25565b9050919050565b60008115159050919050565b6000819050612b2082612d1c565b919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b6000612b5a82612b12565b9050919050565b82818337600083830152505050565b60005b83811015612b8e578082015181840152602081019050612b73565b83811115612b9d576000848401525b50505050565b60006002820490506001821680612bbb57607f821691505b60208210811415612bcf57612bce612cad565b5b50919050565b612bde82612d0b565b810181811067ffffffffffffffff82111715612bfd57612bfc612cdc565b5b80604052505050565b6000612c1182612b45565b91507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff821415612c4457612c43612c4f565b5b600182019050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6000601f19601f8301169050919050565b60038110612d2d57612d2c612c7e565b5b50565b612d3981612af4565b8114612d4457600080fd5b50565b612d5081612b45565b8114612d5b57600080fd5b5056fea2646970667358221220dd3974ce820ede019fdb8c61dfe0019e715446044c9acd72c90f5b5ab8647deb64736f6c63430008040033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106101165760003560e01c806379050904116100a2578063c90eeff111610071578063c90eeff114610303578063ee0591fe1461031f578063f052cf991461033b578063fbf6265e14610357578063fc999f201461038757610116565b8063790509041461027d5780637b7528ac1461029b5780639abea6c1146102b7578063ab31803f146102d357610116565b806320037f33116100e957806320037f33146101a15780634945fcc7146101d157806364ab2b10146102015780636d1884e01461021d5780636e59b1ad1461024d57610116565b8063069e2fb21461011b57806309ac3bb5146101375780631210b3d6146101555780631c25f16e14610171575b600080fd5b610135600480360381019061013091906124cc565b6103a3565b005b61013f6104d6565b60405161014c91906129c7565b60405180910390f35b61016f600480360381019061016a9190612662565b6104df565b005b61018b60048036038101906101869190612508565b610599565b604051610198919061292b565b60405180910390f35b6101bb60048036038101906101b691906124a3565b6105d9565b6040516101c89190612946565b60405180910390f35b6101eb60048036038101906101e69190612508565b6109ac565b6040516101f89190612983565b60405180910390f35b61021b6004803603810190610216919061260e565b610a54565b005b61023760048036038101906102329190612508565b610b1e565b60405161024491906129a5565b60405180910390f35b61026760048036038101906102629190612508565b610d34565b60405161027491906129c7565b60405180910390f35b610285610d59565b6040516102929190612946565b60405180910390f35b6102b560048036038101906102b09190612508565b6111c9565b005b6102d160048036038101906102cc9190612662565b61160b565b005b6102ed60048036038101906102e891906124a3565b6116c5565b6040516102fa9190612946565b60405180910390f35b61031d6004803603810190610318919061256d565b611a98565b005b61033960048036038101906103349190612531565b611cb0565b005b61035560048036038101906103509190612508565b611db8565b005b610371600480360381019061036c9190612531565b6121fb565b60405161037e9190612968565b60405180910390f35b6103a1600480360381019061039c91906124cc565b612263565b005b6002600082815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461043e576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081908060018154018082558091505060019003906000526020600020016000909190919091505560016002600083815260200190815260200160002060050160008282546104cb9190612a9e565b925050819055505050565b60008054905090565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461057a576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8060026000848152602001908152602001600020600401819055505050565b60006002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050919050565b60606000600460008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002080548060200260200160405190810160405280929190818152602001828054801561066657602002820191906000526020600020905b815481526020019060010190808311610652575b5050505050905060008151905060008167ffffffffffffffff8111156106b5577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040519080825280602002602001820160405280156106ee57816020015b6106db6122cd565b8152602001906001900390816106d35790505b50905060005b828110156109a0576000848281518110610737577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b602002602001015190506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461081d90612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461084990612ba3565b80156108965780601f1061086b57610100808354040283529160200191610896565b820191906000526020600020905b81548152906001019060200180831161087957829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff166002811115610908577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115610940577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050905080848481518110610980577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200260200101819052505050808061099890612c06565b9150506106f4565b50809350505050919050565b60606002600083815260200190815260200160002060020180546109cf90612ba3565b80601f01602080910402602001604051908101604052809291908181526020018280546109fb90612ba3565b8015610a485780601f10610a1d57610100808354040283529160200191610a48565b820191906000526020600020905b815481529060010190602001808311610a2b57829003601f168201915b50505050509050919050565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610aef576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b80600260008481526020019081526020016000206002019080519060200190610b1992919061236e565b505050565b610b266122cd565b6000600260008481526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282018054610c0290612ba3565b80601f0160208091040260200160405190810160405280929190818152602001828054610c2e90612ba3565b8015610c7b5780601f10610c5057610100808354040283529160200191610c7b565b820191906000526020600020905b815481529060010190602001808311610c5e57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff166002811115610ced577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115610d25577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050905080915050919050565b6000806002600084815260200190815260200160002060030154905080915050919050565b6060600080600190505b6000548111610e2b5760006002811115610da6577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff166002811115610e02577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b1415610e1857600182610e159190612a9e565b91505b8080610e2390612c06565b915050610d63565b5060008167ffffffffffffffff811115610e6e577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b604051908082528060200260200182016040528015610ea757816020015b610e946122cd565b815260200190600190039081610e8c5790505b509050600080600190505b60005481116111bf5760006002811115610ef5577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff166002811115610f51577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b14156111ac57600260008281526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461103190612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461105d90612ba3565b80156110aa5780601f1061107f576101008083540402835291602001916110aa565b820191906000526020600020905b81548152906001019060200180831161108d57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff16600281111561111c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115611154577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050838381518110611191577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b60200260200101819052506001826111a99190612a9e565b91505b80806111b790612c06565b915050610eb2565b5081935050505090565b6002600082815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614611264576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b6001600281111561129e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff1660028111156112fa577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b14611331576040517f7c26c04a00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600280600083815260200190815260200160002060060160006101000a81548160ff02191690836002811115611390577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461147190612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461149d90612ba3565b80156114ea5780601f106114bf576101008083540402835291602001916114ea565b820191906000526020600020905b8154815290600101906020018083116114cd57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff16600281111561155c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115611594577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b815250509050806020015173ffffffffffffffffffffffffffffffffffffffff16816000015173ffffffffffffffffffffffffffffffffffffffff167fc5e48929c6ad41636874ae3938e60e36431dd0899ca520e58c58107c9e4454de426040516115ff91906129c7565b60405180910390a35050565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146116a6576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b8060026000848152602001908152602001600020600301819055505050565b60606000600360008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002080548060200260200160405190810160405280929190818152602001828054801561175257602002820191906000526020600020905b81548152602001906001019080831161173e575b5050505050905060008151905060008167ffffffffffffffff8111156117a1577f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6040519080825280602002602001820160405280156117da57816020015b6117c76122cd565b8152602001906001900390816117bf5790505b50905060005b82811015611a8c576000848281518110611823577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b602002602001015190506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461190990612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461193590612ba3565b80156119825780601f1061195757610100808354040283529160200191611982565b820191906000526020600020905b81548152906001019060200180831161196557829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff1660028111156119f4577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115611a2c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525050905080848481518110611a6c577f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b602002602001018190525050508080611a8490612c06565b9150506117e0565b50809350505050919050565b6040518060e001604052808673ffffffffffffffffffffffffffffffffffffffff1681526020018573ffffffffffffffffffffffffffffffffffffffff1681526020018481526020018381526020018281526020016000815260200160006002811115611b2e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b8152506002600088815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506040820151816002019080519060200190611bee92919061236e565b50606082015181600301556080820151816004015560a0820151816005015560c08201518160060160006101000a81548160ff02191690836002811115611c5e577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055509050506001600080828254611c789190612a9e565b925050819055506001869080600181540180825580915050600190039060005260206000200160009091909190915055505050505050565b6002600083815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614611d4b576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60016005600084815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b6002600082815260200190815260200160002060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614611e53576040517f8f245d4b00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60006002811115611e8d577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002600083815260200190815260200160002060060160009054906101000a900460ff166002811115611ee9577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b14611f20576040517faef48ca700000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60016002600083815260200190815260200160002060060160006101000a81548160ff02191690836002811115611f80577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b02179055506000600260008381526020019081526020016000206040518060e00160405290816000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200160028201805461206190612ba3565b80601f016020809104026020016040519081016040528092919081815260200182805461208d90612ba3565b80156120da5780601f106120af576101008083540402835291602001916120da565b820191906000526020600020905b8154815290600101906020018083116120bd57829003601f168201915b505050505081526020016003820154815260200160048201548152602001600582015481526020016006820160009054906101000a900460ff16600281111561214c577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b6002811115612184577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b815250509050806020015173ffffffffffffffffffffffffffffffffffffffff16816000015173ffffffffffffffffffffffffffffffffffffffff167fee0dca10a9957dad74da3fe318a3ccc561c46d96be0ab0b66e7aff32aab94cf3426040516121ef91906129c7565b60405180910390a35050565b60006005600084815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600460008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000208190806001815401808255809150506001900390600052602060002001600090919091909150555050565b6040518060e00160405280600073ffffffffffffffffffffffffffffffffffffffff168152602001600073ffffffffffffffffffffffffffffffffffffffff1681526020016060815260200160008152602001600081526020016000815260200160006002811115612368577f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b81525090565b82805461237a90612ba3565b90600052602060002090601f01602090048101928261239c57600085556123e3565b82601f106123b557805160ff19168380011785556123e3565b828001600101855582156123e3579182015b828111156123e25782518255916020019190600101906123c7565b5b5090506123f091906123f4565b5090565b5b8082111561240d5760008160009055506001016123f5565b5090565b600061242461241f84612a07565b6129e2565b90508281526020810184848401111561243c57600080fd5b612447848285612b61565b509392505050565b60008135905061245e81612d30565b92915050565b600082601f83011261247557600080fd5b8135612485848260208601612411565b91505092915050565b60008135905061249d81612d47565b92915050565b6000602082840312156124b557600080fd5b60006124c38482850161244f565b91505092915050565b600080604083850312156124df57600080fd5b60006124ed8582860161244f565b92505060206124fe8582860161248e565b9150509250929050565b60006020828403121561251a57600080fd5b60006125288482850161248e565b91505092915050565b6000806040838503121561254457600080fd5b60006125528582860161248e565b92505060206125638582860161244f565b9150509250929050565b60008060008060008060c0878903121561258657600080fd5b600061259489828a0161248e565b96505060206125a589828a0161244f565b95505060406125b689828a0161244f565b945050606087013567ffffffffffffffff8111156125d357600080fd5b6125df89828a01612464565b93505060806125f089828a0161248e565b92505060a061260189828a0161248e565b9150509295509295509295565b6000806040838503121561262157600080fd5b600061262f8582860161248e565b925050602083013567ffffffffffffffff81111561264c57600080fd5b61265885828601612464565b9150509250929050565b6000806040838503121561267557600080fd5b60006126838582860161248e565b92505060206126948582860161248e565b9150509250929050565b60006126aa83836127d5565b905092915050565b6126bb81612af4565b82525050565b6126ca81612af4565b82525050565b60006126db82612a48565b6126e58185612a6b565b9350836020820285016126f785612a38565b8060005b858110156127335784840389528151612714858261269e565b945061271f83612a5e565b925060208a019950506001810190506126fb565b50829750879550505050505092915050565b61274e81612b06565b82525050565b61275d81612b4f565b82525050565b600061276e82612a53565b6127788185612a7c565b9350612788818560208601612b70565b61279181612d0b565b840191505092915050565b60006127a782612a53565b6127b18185612a8d565b93506127c1818560208601612b70565b6127ca81612d0b565b840191505092915050565b600060e0830160008301516127ed60008601826126b2565b50602083015161280060208601826126b2565b50604083015184820360408601526128188282612763565b915050606083015161282d606086018261290d565b506080830151612840608086018261290d565b5060a083015161285360a086018261290d565b5060c083015161286660c0860182612754565b508091505092915050565b600060e08301600083015161288960008601826126b2565b50602083015161289c60208601826126b2565b50604083015184820360408601526128b48282612763565b91505060608301516128c9606086018261290d565b5060808301516128dc608086018261290d565b5060a08301516128ef60a086018261290d565b5060c083015161290260c0860182612754565b508091505092915050565b61291681612b45565b82525050565b61292581612b45565b82525050565b600060208201905061294060008301846126c1565b92915050565b6000602082019050818103600083015261296081846126d0565b905092915050565b600060208201905061297d6000830184612745565b92915050565b6000602082019050818103600083015261299d818461279c565b905092915050565b600060208201905081810360008301526129bf8184612871565b905092915050565b60006020820190506129dc600083018461291c565b92915050565b60006129ec6129fd565b90506129f88282612bd5565b919050565b6000604051905090565b600067ffffffffffffffff821115612a2257612a21612cdc565b5b612a2b82612d0b565b9050602081019050919050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000612aa982612b45565b9150612ab483612b45565b9250827fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff03821115612ae957612ae8612c4f565b5b828201905092915050565b6000612aff82612b25565b9050919050565b60008115159050919050565b6000819050612b2082612d1c565b919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b6000612b5a82612b12565b9050919050565b82818337600083830152505050565b60005b83811015612b8e578082015181840152602081019050612b73565b83811115612b9d576000848401525b50505050565b60006002820490506001821680612bbb57607f821691505b60208210811415612bcf57612bce612cad565b5b50919050565b612bde82612d0b565b810181811067ffffffffffffffff82111715612bfd57612bfc612cdc565b5b80604052505050565b6000612c1182612b45565b91507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff821415612c4457612c43612c4f565b5b600182019050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602260045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6000601f19601f8301169050919050565b60038110612d2d57612d2c612c7e565b5b50565b612d3981612af4565b8114612d4457600080fd5b50565b612d5081612b45565b8114612d5b57600080fd5b5056fea2646970667358221220dd3974ce820ede019fdb8c61dfe0019e715446044c9acd72c90f5b5ab8647deb64736f6c63430008040033",
+  "devdoc": {
+    "details": "This contract saves all events and their details and allows to query data",
+    "kind": "dev",
+    "methods": {},
+    "title": "@author David Camps Novi",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 457,
+        "contract": "contracts/EventLog.sol:EventLog",
+        "label": "s_numberOfEvents",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 460,
+        "contract": "contracts/EventLog.sol:EventLog",
+        "label": "s_eventIds",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)dyn_storage"
+      },
+      {
+        "astId": 465,
+        "contract": "contracts/EventLog.sol:EventLog",
+        "label": "s_events",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint256,t_struct(Event)501_storage)"
+      },
+      {
+        "astId": 470,
+        "contract": "contracts/EventLog.sol:EventLog",
+        "label": "s_registeredEvents",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_array(t_uint256)dyn_storage)"
+      },
+      {
+        "astId": 475,
+        "contract": "contracts/EventLog.sol:EventLog",
+        "label": "s_createdEvents",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_array(t_uint256)dyn_storage)"
+      },
+      {
+        "astId": 481,
+        "contract": "contracts/EventLog.sol:EventLog",
+        "label": "s_winners",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_bool))"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)dyn_storage": {
+        "base": "t_uint256",
+        "encoding": "dynamic_array",
+        "label": "uint256[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_enum(GameStatus)485": {
+        "encoding": "inplace",
+        "label": "enum EventLog.GameStatus",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_array(t_uint256)dyn_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256[])",
+        "numberOfBytes": "32",
+        "value": "t_array(t_uint256)dyn_storage"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_bool)"
+      },
+      "t_mapping(t_uint256,t_struct(Event)501_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct EventLog.Event)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Event)501_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Event)501_storage": {
+        "encoding": "inplace",
+        "label": "struct EventLog.Event",
+        "members": [
+          {
+            "astId": 487,
+            "contract": "contracts/EventLog.sol:EventLog",
+            "label": "eventGameAddress",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 489,
+            "contract": "contracts/EventLog.sol:EventLog",
+            "label": "eventOwner",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 491,
+            "contract": "contracts/EventLog.sol:EventLog",
+            "label": "eventName",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 493,
+            "contract": "contracts/EventLog.sol:EventLog",
+            "label": "numberOfTickets",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 495,
+            "contract": "contracts/EventLog.sol:EventLog",
+            "label": "ticketPrice",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 497,
+            "contract": "contracts/EventLog.sol:EventLog",
+            "label": "totalUsers",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 500,
+            "contract": "contracts/EventLog.sol:EventLog",
+            "label": "status",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_enum(GameStatus)485"
+          }
+        ],
+        "numberOfBytes": "224"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 {
-  "name": "core",
+  "name": "rock-paper-ticket",
+  "author": "david camps novi",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -26,5 +27,15 @@
     "prettier-plugin-solidity": "^1.0.0-beta.13",
     "solhint": "^3.3.6",
     "solidity-coverage": "^0.7.16"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.0-beta.1"
+  },
+  "scripts": {
+    "test": "yarn hardhat test",
+    "lint": "yarn solhint 'contracts/*.sol'",
+    "lint:fix": "yarn solhint 'contracts/*.sol' --fix",
+    "format": "yarn prettier --write .",
+    "coverage": "yarn hardhat coverage"
   }
 }

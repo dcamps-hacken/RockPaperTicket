@@ -40,3 +40,46 @@ Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_
 ```shell
 npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
 ```
+
+yarn init
+yarn add --dev hardhat
+yarn hardhat
+advanced sample project + install all dependencies
+
+yarn add --dev @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers @nomiclabs/hardhat-etherscan @nomiclabs/hardhat-waffle chai ethereum-waffle hardhat hardhat-contract-sizer hardhat-deploy hardhat-gas-reporter prettier prettier-plugin-solidity solhint solidity-coverage dotenv
+
+
+First steps:
+eslint (js linting)
+solhing (solidity linting) --> yarn solhint <files> --> yarn solhint contracts/*.sol
+prettierrc (code formatting) --> add content
+prettierignore --> add content
+.env --> add content
+
+
+yarn add @chainlink/contracts
+
+
+Add hardhat-deploy
+yarn add hardhat-deploy
+require("hardhat-deploy")
+
+yarn hardhat --> deploy task appears
+
+create deploy folder
+add hardhat-deploy ethers: yarn add --save-dev @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers --> 
+allows to keep track and remember all deployments
+
+
+to use getNamedAccounts() we need to add to hardhat config:
+namedAccounts: {
+      deployer: {
+        default: 0, //takes account #0
+      },
+      user: { //we can create a user
+        default: 1 //takes account #1
+      }
+    }
+
+
+create helper-hardhat-config.js file to define network config

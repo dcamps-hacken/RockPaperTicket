@@ -189,6 +189,22 @@ contract EventLog {
         return s_events[_eventId].eventGameAddress;
     }
 
+    function getEventOwner(uint256 _eventId) public view returns (address) {
+        return s_events[_eventId].eventOwner;
+    }
+
+    function getTicketPrice(uint256 _eventId) public view returns (uint256) {
+        return s_events[_eventId].ticketPrice;
+    }
+
+    function getTotalUsers(uint256 _eventId) public view returns (uint256) {
+        return s_events[_eventId].totalUsers;
+    }
+
+    //function getGameStatus(uint256 _eventId) public view returns (uint8) {
+    //    return s_events[_eventId].status;
+    //}
+
     function getEventName(uint256 _eventId)
         external
         view

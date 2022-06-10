@@ -1,6 +1,6 @@
 pragma solidity 0.8.4;
 
-import "contracts/gameInterface.sol";
+import "contracts/ILogVRF.sol";
 
 contract EventGame {
     // constant variables since the creation of the event

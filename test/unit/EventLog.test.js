@@ -12,14 +12,14 @@ describe("EventLog", async function () {
         eventLog = await ethers.getContract("EventLog", deployer) //get most recently deployed contract
     })
 
-    describe("constructor", async function () {
+    describe("constructor", function () {
         it("sets the number of events", async function () {
             const numberOfEvents = await eventLog.getNumberOfEvents()
             assert.equal(numberOfEvents, "0")
         })
     })
 
-    describe("function logEvent()", async function () {
+    describe("function logEvent()", function () {
         beforeEach(async function () {
             const numberOfEvents = await eventLog.getNumberOfEvents()
             const tx = await eventLog._logEvent(
@@ -42,7 +42,7 @@ describe("EventLog", async function () {
         })
     })
 
-    describe("updateName", async function () {
+    describe("updateName", function () {
         //beforeEach(async function () {
         //    await eventLog._logEvent(
         //        "1",
@@ -53,7 +53,7 @@ describe("EventLog", async function () {
         //        "10"
         //    )
         //})
-        it("reverts if not called from eventGame", async function () {
+        it("reverts if not called from eventGame", function () {
             await expect(
                 eventLog._updateName("1", "newName")
             ).to.be.revertedWith("EventLog__NotCalledFromEventGame")
@@ -61,7 +61,7 @@ describe("EventLog", async function () {
         })
     })
 
-    describe("_gameStart", async function () {
+    describe("_gameStart", function () {
         it("reverts if not called from eventGame", async function () {
             await expect(eventLog._gameStart("1")).to.be.revertedWith(
                 "EventLog__NotCalledFromEventGame"
